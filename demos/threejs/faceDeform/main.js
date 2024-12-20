@@ -28,10 +28,10 @@ function build_maskMaterial(videoTransformMat2){
   const float RADIUS0 = 0.18; // Smaller radius for lips center
   
   const vec2 TEARPOINT1 = vec2(0.2, -0.45); // Right corner of lips
-  const float RADIUS1 = 0.15; // Tight radius for right corner
+  const float RADIUS1 = 0.18; // Tight radius for right corner
   
   const vec2 TEARPOINT2 = vec2(-0.2, -0.45); // Left corner of lips
-  const float RADIUS2 = 0.15; // Tight radius for left corner
+  const float RADIUS2 = 0.18; // Tight radius for left corner
 
   void main() {
     vec3 positionDeformed = position;
@@ -40,21 +40,21 @@ function build_maskMaterial(videoTransformMat2){
     float distance0 = distance(TEARPOINT0, position.xy);
     if (distance0 < RADIUS0) {
       float deformFactor0 = 1.0 - smoothstep(0.0, RADIUS0, distance0);
-      positionDeformed.xy += deformFactor0 * (position.xy - TEARPOINT0) * 0.55 * (1.0 - distance0 / RADIUS0); // Stronger near center
+      positionDeformed.xy += deformFactor0 * (position.xy - TEARPOINT0) * 0.60 * (1.0 - distance0 / RADIUS0); // Stronger near center
     }
   
     // Right corner scaling
     float distance1 = distance(TEARPOINT1, position.xy);
     if (distance1 < RADIUS1) {
       float deformFactor1 = 1.0 - smoothstep(0.0, RADIUS1, distance1);
-      positionDeformed.xy += deformFactor1 * (position.xy - TEARPOINT1) * 0.55 * (1.0 - distance1 / RADIUS1); // Smooth scaling
+      positionDeformed.xy += deformFactor1 * (position.xy - TEARPOINT1) * 0.6 * (1.0 - distance1 / RADIUS1); // Smooth scaling
     }
   
     // Left corner scaling
     float distance2 = distance(TEARPOINT2, position.xy);
     if (distance2 < RADIUS2) {
       float deformFactor2 = 1.0 - smoothstep(0.0, RADIUS2, distance2);
-      positionDeformed.xy += deformFactor2 * (position.xy - TEARPOINT2) * 0.55 * (1.0 - distance2 / RADIUS2); // Smooth scaling
+      positionDeformed.xy += deformFactor2 * (position.xy - TEARPOINT2) * 0.6 * (1.0 - distance2 / RADIUS2); // Smooth scaling
     }
   
     // project deformed point:

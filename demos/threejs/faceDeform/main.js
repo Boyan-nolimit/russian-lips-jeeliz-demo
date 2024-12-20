@@ -25,7 +25,7 @@ function build_maskMaterial(videoTransformMat2){
     
   // Parameters for scaling (tuned for realistic lips-only effect):
   const vec2 TEARPOINT0 = vec2(0., -0.5); // Center of lips
-  const float RADIUS0 = 0.18; // Smaller radius for lips center
+  const float RADIUS0 = 0.25; // Smaller radius for lips center
   
   const vec2 TEARPOINT1 = vec2(0.2, -0.45); // Right corner of lips
   const float RADIUS1 = 0.18; // Tight radius for right corner
